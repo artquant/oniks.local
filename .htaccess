@@ -1,0 +1,70 @@
+DirectoryIndex index.php
+
+Options All -Indexes
+
+RewriteEngine On
+
+# 1 YEAR
+<FilesMatch "\.(ico|pdf|flv)$">
+#Header set Cache-Control "max-age=29030400, public"
+</FilesMatch>
+# 1 WEEK
+<FilesMatch "\.(jpg|jpeg|png|gif|swf|svg)$">
+#Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+# 2 DAYS
+<FilesMatch "\.(xml|txt|css|js)$">
+#Header set Cache-Control "max-age=172800, proxy-revalidate"
+</FilesMatch>
+# 1 MIN
+<FilesMatch "\.(html|htm|php)$">
+#Header set Cache-Control "max-age=60, private, proxy-revalidate"
+</FilesMatch>
+
+
+# Serve gzip compressed CSS files if they exist
+# and the client accepts gzip.
+#RewriteCond "%{HTTP:Accept-encoding}" "gzip"
+#RewriteCond "%{REQUEST_FILENAME}\.gz" -s
+#RewriteRule "^(.*)\.css" "$1\.css\.gz" [QSA]
+
+# Serve gzip compressed JS files if they exist
+# and the client accepts gzip.
+#RewriteCond "%{HTTP:Accept-encoding}" "gzip"
+#RewriteCond "%{REQUEST_FILENAME}\.gz" -s
+#RewriteRule "^(.*)\.js" "$1\.js\.gz" [QSA]
+
+
+# Serve correct content types, and prevent mod_deflate double gzip.
+#RewriteRule "\.css\.gz$" "-" [T=text/css,E=no-gzip:1]
+#RewriteRule "\.js\.gz$" "-" [T=text/javascript,E=no-gzip:1]
+
+
+<FilesMatch "(\.js\.gz|\.css\.gz)$">
+	# Serve correct encoding type.
+	#Header append Content-Encoding gzip
+
+	# Force proxies to cache gzipped &
+	# non-gzipped css/js files separately.
+	#Header append Vary Accept-Encoding
+</FilesMatch>
+
+#Header unset ETag
+#FileETag None
+
+#Block mySQL injects
+RewriteCond %{QUERY_STRING} (;|<|>|'|"|\)|%0A|%0D|%22|%27|%3C|%3E|%00).*(/\*|union|select|insert|cast|set|declare|drop|update|md5|benchmark) [NC,OR]
+RewriteCond %{QUERY_STRING} \.\./\.\. [OR]
+RewriteCond %{QUERY_STRING} (localhost|loopback|127\.0\.0\.1) [NC,OR]
+RewriteCond %{QUERY_STRING} \.[a-z0-9] [NC,OR]
+
+RewriteRule ^(/?(app)\/?.*) index.php [NC,QSA,L]
+RewriteRule ^(/?(inc)\/?.*) index.php [NC,QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#RewriteRule ^(.*)$ index.php [QSA,L]
+RewriteRule ^(.*)$ index.php/$1 [QSA,L]
+
+#RewriteRule .* index.php [L]

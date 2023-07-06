@@ -1,0 +1,274 @@
+:root {
+	--aqUI-background-color: #FFFFFF;
+	--aqUI-background-color-active: #DC2F02;
+	--aqUI-background-color-disabled: #646C77;
+	--aqUI-color-active: #03071E;
+	--aqUI-color-disabled: #646C77;
+	--aqUI-border-color: #E5EBF1;
+	--aqUI-border-color-active: #DC2F02;
+	--aqUI-border-color-disabled: #646C77;
+	--aqUI-toggle-background-color: #E5EBF1;
+	--aqUI-ul-ol-color: #DC2F02;
+	--aqUI-ul-border-color: #CBD0D8;
+}
+/* Checkbox, Radio, Toggle */
+.aqUI-checkbox,
+.aqUI-radio,
+.aqUI-toggle {
+	display: inline-flex;
+	height: 24px;
+}
+.aqUI-checkbox input,
+.aqUI-radio input,
+.aqUI-toggle input {
+	position: absolute;
+	width: 0;
+	left: 0;
+	display: none;
+	z-index: -1;
+	opacity: 0;
+}
+.aqUI-checkbox span,
+.aqUI-radio span,
+.aqUI-toggle span {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	height: 24px;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+.aqUI-checkbox span::before,
+.aqUI-radio span::before {
+	content: "";
+	display: flex;
+	width: 20px;
+	height: 20px;
+	margin-right: 7px;
+	border: 1.5px solid var(--aqUI-border-color);
+	background-color: var(--aqUI-background-color);
+	transition: all .2s ease-in-out;
+}
+.aqUI-toggle span::before {
+	content: "";
+	display: flex;
+	width: 30px;
+	height: 20px;
+	margin-right: 7px;
+	border-radius: 20px;
+	background-color: var(--aqUI-toggle-background-color);
+	transition: all .2s ease-in-out;
+}
+.aqUI-checkbox span::before {
+	border-radius: 3px;
+}
+.aqUI-radio span::before {
+	border-radius: 50%;
+}
+.aqUI-checkbox input:checked + span,
+.aqUI-radio input:checked + span,
+.aqUI-toggle input:checked + span {
+	color: var(--aqUI-color-active);
+}
+.aqUI-checkbox input:checked + span::before,
+.aqUI-radio input:checked + span::before {
+	border-color: var(--aqUI-border-color-active);
+}
+.aqUI-toggle input:checked + span::before {
+	background-color: var(--aqUI-background-color-active);
+}
+.aqUI-checkbox input:checked:disabled + span::before,
+.aqUI-radio input:checked:disabled + span::before {
+	border-color: var(--aqUI-border-color-disabled);
+}
+.aqUI-toggle input:checked:disabled + span::before {
+	background-color: var(--aqUI-background-color-disabled);
+}
+.aqUI-checkbox input + span::after {
+	position: absolute;
+	content: "";
+	left: 9px;
+	top: 7px;
+	width: 3px;
+	height: 9px;
+	border-style: solid;
+	border-color: transparent;
+	border-width: 0 1.5px 1.5px 0;
+	transform: rotate(45deg);
+	transition: all .2s ease-in-out;
+}
+.aqUI-radio input + span::after {
+	position: absolute;
+	content: "";
+	left: 6px;
+	top: 8px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: transparent;
+	transform: rotate(45deg);
+	transition: all .2s ease-in-out;
+}
+.aqUI-toggle input + span::after {
+	position: absolute;
+	content: "";
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background-color: var(--aqUI-background-color);
+	transform: translateX(1px);
+	transition: all .2s ease-in-out;
+}
+.aqUI-checkbox input:checked + span::after {
+	position: absolute;
+	content: '';
+	left: 8px;
+	top: 5px;
+	width: 5px;
+	height: 11px;
+	border-style: solid;
+	border-color: var(--aqUI-border-color-active);
+	border-width: 0 1.5px 1.5px 0;
+	transform: rotate(45deg);
+}
+.aqUI-toggle input:checked + span::after {
+	transform: translateX(11px);
+}
+.aqUI-radio input:checked + span::after {
+	position: absolute;
+	content: '';
+	left: 4px;
+	top: 6px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: var(--aqUI-background-color-active);
+	transform: rotate(45deg);
+}
+.aqUI-checkbox input:disabled + span,
+.aqUI-radio input:disabled + span,
+.aqUI-toggle input:disabled + span {
+	color: var(--aqUI-color-disabled);
+}
+.aqUI-checkbox input:checked:disabled + span::after {
+	border-color: var(--aqUI-border-color-disabled);
+}
+.aqUI-radio input:checked:disabled + span::after {
+	background-color: var(--aqUI-background-color-disabled);
+}
+/* ------------------------------ */
+/* Ul, Ol */
+ul.aqUI,
+ol.aqUI {
+	list-style: none;
+	margin-left: 20px;
+}
+ul.aqUI li,
+ol.aqUI li {
+	position: relative;
+	margin: 5px 0;
+	padding-left: 15px;
+	font-size: 14px;
+}
+ul.aqUI li::before {
+	position: absolute;
+	content: "";
+	left: 0;
+	top: 7px;
+	width: 5px;
+	height: 5px;
+	border: 1px solid transparent;
+}
+ul.aqUI li::after {
+	position: absolute;
+	content: "";
+	top: 15px;
+	left: 2px;
+	bottom: -9px;
+	border-left: 1px dotted var(--aqUI-ul-border-color);
+}
+ul.aqUI li:last-child::after {
+	content: none;
+}
+ul.aqUI.disk li::before {
+	background-color: var(--aqUI-ul-ol-color);
+	border-radius: 50%;
+}
+ul.aqUI.circle li::before {
+	border-color: var(--aqUI-ul-ol-color);
+	border-radius: 50%;
+}
+ul.aqUI.square li::before {
+	background-color: var(--aqUI-ul-ol-color);
+	border-radius: 2px;
+}
+ul.aqUI.cube li::before {
+	border-color: var(--aqUI-ul-ol-color);
+	border-radius: 2px;
+}
+ol.aqUI {
+	counter-reset: countReset;
+}
+ol.aqUI li {
+	list-style: none;
+	padding: 0;
+}
+ol.aqUI li::before {
+	display: inline-block;
+	counter-increment: countReset;
+	content: counter(countReset)".";
+	margin-right: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: var(--aqUI-ul-ol-color);
+}
+/* ------------------------------ */
+/* List */
+.aqUI-tl {
+	display: flex;
+	flex-direction: column;
+}
+.aqUI-tl-content {
+	display: flex;
+	flex-direction: row;
+}
+.aqUI-tl-content:last-child .aqUI-tl-r::after {
+	content: none;
+}
+.aqUI-tl-l {
+	min-width: 140px;
+	color: var(--aqUI-ul-ol-color);
+	text-align: right;
+	margin-right: 30px;
+}
+.aqUI-tl-r {
+	position: relative;
+	padding-left: 40px;
+}
+.aqUI-tl-r::before {
+	position: absolute;
+	content: '';
+	top: 4px;
+	left: 0;
+	width: 9px;
+	height: 9px;
+	border: 1px solid var(--aqUI-background-color-active);
+	border-radius: 50%;
+}
+.aqUI-tl-r::after {
+	position: absolute;
+	content: '';
+	top: 20px;
+	left: 4px;
+	bottom: 3px;
+	border-left: 1px dotted var(--aqUI-border-color);
+}
+.aqUI-tl-title {
+	color: var(--aqUI-ul-ol-color);
+	margin-bottom: 20px;
+}
+.aqUI-tl-body {
+	font-size: 13px;
+	margin-bottom: 20px;
+}
+/* ------------------------------ */

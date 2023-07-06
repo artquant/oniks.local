@@ -1,0 +1,541 @@
+:root {
+	--color-text: #03071E;
+	--background-color: #F7F8FB;
+	--background-color-white: #FFFFFF;
+	--color-link: #D8334A;
+	--color-link-hover: #BF263C;
+	--color-month: #6C757D;
+	--color-separator: #6C757D;
+
+	--afish-day-active-background-color: #F2F3F5;
+	--afisha-film-title-color: #003566;
+	--afisha-age-restrictions-color: #A2B1BF;
+	--afisha-genre-color: #6C757D;
+	--afisha-theatres-title-color: #D8334A;
+	--afisha-cinema-price-symbol-color: #6C757D;
+	--afisha-cinema-price-text-color: #A2B1BF;
+	--afisha-film-more-icon: #33CC99;
+	--afisha-cinema-address-icon: #336CD8;
+
+	--premier-box-poster-border-color: #F1F3F5;
+	--premier-box-label-color: #6C757D;
+	--premier-box-about-text-color: #D8334A;
+
+	--message-nothing-found-color-text: #6C757D;
+
+	--header-border-color: #F7F8FB;
+
+	--footer-color: #A2B1BF;
+	--button-scroll-top-color: #A2B1BF;
+
+	--vk-color: #0077FF;
+
+	--adult-color: #D8334A;
+
+	--font-size-11: 11px;
+	--font-size-12: 12px;
+	--font-size-13: 13px;
+	--font-size-14: 14px;
+	--font-size-16: 16px;
+	--font-size-18: 18px;
+	--font-size-20: 20px;
+	--font-size-24: 24px;
+
+	--box-shadow-cart: 0 4px 50px -12px rgba(17, 12, 46, .16);
+}
+html {
+	height: 100%;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+}
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font: 500 var(--font-size-14) 'Gilroy';
+	letter-spacing: .01em;
+	color: var(--color-text);
+	background-color: var(--background-color-white);
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+* {
+	outline: none;
+}
+.pos-abs {
+	position: absolute;
+}
+.pos-rel {
+	position: relative;
+}
+.fx {
+	display: flex;
+}
+.fx-inline {
+	display: inline-flex;
+}
+.fx-dir-row {
+	flex-direction: row;
+}
+.fx-dir-col {
+	flex-direction: column;
+}
+.fx-jc-start {
+	justify-content: flex-start;
+}
+.fx-jc-center {
+	justify-content: center;
+}
+.fx-jc-end {
+	justify-content: flex-end;
+}
+.fx-jc-around {
+	justify-content: space-around;
+}
+.fx-jc-between {
+	justify-content: space-between;
+}
+.fx-jc-evenly {
+	justify-content: space-evenly;
+}
+.fx-jc-stretch {
+	justify-content: stretch;
+}
+.fx-ai-start {
+	align-items: flex-start;
+}
+.fx-ai-center {
+	align-items: center;
+}
+.fx-ai-end {
+	align-items: flex-end;
+}
+.fx-ai-stretch {
+	align-items: stretch;
+}
+.fx-ai-baseline {
+	align-items: baseline;
+}
+.fx-ac-start {
+	align-content: flex-start;
+}
+.fx-ac-center {
+	align-content: center;
+}
+.fx-ac-end {
+	align-content: flex-end;
+}
+.fx-ac-around {
+	align-content: space-around;
+}
+.fx-ac-between {
+	align-content: space-between;
+}
+.fx-ac-evenly {
+	align-content: space-evenly;
+}
+.fx-ac-stretch {
+	align-content: stretch;
+}
+.fx-as-start {
+	align-self: flex-start;
+}
+.fx-wrap {
+	flex-wrap: wrap;
+}
+.fx-grow-1 {
+	flex-grow: 1;
+}
+.fx-grow-2 {
+	flex-grow: 2;
+}
+.fx-grow-3 {
+	flex-grow: 3;
+}
+.grid {
+	display: grid;
+}
+.dp-block {
+	display: block;
+}
+.dp-none {
+	display: none;
+}
+.ta-center {
+	text-align: center;
+}
+.ta-left {
+	text-align: left;
+}
+.ta-right {
+	text-align: right;
+}
+.ta-justify {
+	text-align: justify;
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	transition: color .3s;
+}
+a:hover {
+	outline: none;
+	color: var(--color-link-hover);
+}
+.header-container {
+	width: 100%;
+	min-height: 60px;
+	border-bottom: 1px solid var(--header-border-color);
+	background-color: var(--background-color-white);
+}
+.header {
+	width: 100%;
+	max-width: 1100px;
+	padding: 10px;
+}
+.home-link {
+	font-size: var(--font-size-24);
+}
+.logo {
+	width: 240px;
+	height: 36px;
+	background-image: url(/web/svg/logo-afisha.svg);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.date-time {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+.date-time-day,
+.date-time-year {
+	font-weight: 500;
+}
+.date-time-month {
+	margin: 0 5px;
+	color: var(--color-month);
+}
+.date-time-hours {
+	margin-left: 10px;
+}
+.date-time-separator {
+	margin: 0 5px;
+	color: var(--color-separator);
+}
+.calendar-afisha-container {
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+.calendar-afisha-month-info {
+	margin: 0;
+}
+.calendar-afisha-title {
+	margin: 15px 0;
+	font-size: var(--font-size-24);
+}
+.calendar-afisha-month-name {
+	margin-bottom: 3px;
+	text-transform: uppercase;
+	font-size: var(--font-size-11);
+	color: var(--color-month);
+}
+.calendar-afisha-day-info {
+	display: flex;
+	flex-wrap: wrap;
+}
+.calendar-afisha-day {
+	min-width: 45px;
+}
+.calendar-afisha-day .afisha-link {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+	font-size: var(--font-size-12);
+	color: var(--color-text);
+	transition: all .3s;
+}
+.calendar-afisha-day .afisha-link:hover {
+	transform: scale(0.8);
+}
+.calendar-afisha-day .afisha-link .calendar-afisha-day-num {
+	font-size: var(--font-size-20);
+}
+.calendar-afisha-day .afisha-link .calendar-afisha-week-name {
+	color: var(--color-month);
+}
+.calendar-afisha-day .afisha-link.weekend .calendar-afisha-week-name {
+	color: var(--color-link);
+}
+.calendar-afisha-day .afisha-link.active {
+	border-radius: 8px;
+	font-weight: 600;
+	background-color: var(--afish-day-active-background-color);
+	box-shadow: var(--box-shadow-cart);
+	transform: scale(1.1);
+}
+.app {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+.afisha-container {
+	width: 100%;
+	flex: 1 1 auto;
+	max-width: 1100px;
+	margin: 20px auto;
+}
+.afisha-item {
+	margin: 20px;
+	padding: 10px;
+}
+.afisha-poster {
+	width: 200px;
+	height: 300px;
+	margin-right: 20px
+}
+.afisha-poster img {
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
+	object-fit: cover;
+}
+.afisha-details {
+	flex: 1 1 auto;
+}
+.afisha-film-title {
+	font-size: var(--font-size-20);
+	font-weight: 600;
+	color: var(--afisha-film-title-color);
+}
+.afisha-age-restriction {
+	margin-left: 5px;
+	font-size: var(--font-size-12);
+	color: var(--afisha-age-restrictions-color);
+}
+.afisha-age-restriction.adult {
+	color: var(--adult-color);
+}
+.afisha-film-more-icon,
+.afisha-cinema-address-icon {
+	margin-right: 15px;
+	font-size: var(--font-size-16);
+	color: var(--afisha-film-more-icon);
+	cursor: help;
+}
+.afisha-cinema-address-icon {
+	color: var(--afisha-cinema-address-icon);
+}
+.afisha-genre {
+	margin-left: 32px;
+	color: var(--afisha-genre-color);
+}
+.afisha-theatres-container,
+.afisha-cinema-container {
+	flex: 1 1 auto;
+}
+.afisha-theatres-title {
+	margin: 10px 0;
+	font-size: var(--font-size-14);
+	font-weight: 600;
+	text-transform: uppercase;
+	color: var(--afisha-theatres-title-color);
+}
+.afisha-cinema-item {
+	margin: 10px 0;
+}
+.afisha-cinema-info {
+	margin-bottom: 10px;
+}
+.afisha-cinema-name {
+	font-size: var(--font-size-16);
+}
+.afisha-cinema-halls-label {
+	margin-right: 5px;
+	color: var(--afisha-cinema-price-text-color);
+}
+.afisha-cinema-price span {
+	margin: 0 3px;
+}
+.afisha-cinema-price-number {
+	font-size: var(--font-size-16);
+	font-weight: 600;
+}
+.afisha-cinema-price-symbol {
+	color: var(--afisha-cinema-price-symbol-color);
+}
+.afisha-cinema-price-text {
+	color: var(--afisha-cinema-price-text-color);
+}
+.afisha-cinema-time {
+	margin-right: 10px;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-size: var(--font-size-12);
+	color: var(--afisha-genre-color);
+	background-color: var(--afish-day-active-background-color);
+}
+.afisha-cinema-info-container {
+	margin: 10px;
+}
+.afisha-cinema-info-container div {
+	margin: 5px;
+}
+.premier-box-poster {
+	margin: 20px 0 20px;
+	padding: 20px;
+	border-right: 1px solid var(--premier-box-poster-border-color);
+}
+.premier-box-poster img {
+	border-radius: 8px;
+	object-fit: cover;
+}
+.premier-box-details {
+	padding: 40px 20px 40px 20px;
+}
+.premier-box-info {
+	display: flex;
+	margin: 5px 0;
+}
+.premier-box-label {
+	width: 100%;
+	max-width: 190px;
+	color: var(--premier-box-label-color);
+}
+.premier-box-text {
+	width: 100%;
+	max-width: 500px;
+}
+.premier-box-about-text {
+	margin: 20px 0;
+	font-weight: 600;
+	color: var(--premier-box-about-text-color);
+}
+.premier-box-about {
+	width: 100%;
+	max-width: 690px;
+}
+.footer {
+	margin-bottom: 20px;
+	padding: 0 20px;
+	color: var(--footer-color);
+	background-color: var(--background-color);
+}
+.footer-container {
+	width: 100%;
+	max-width: 1100px;
+	height: 40px;
+	margin: 0 auto;
+}
+.footer-media,
+.footer-author {
+	height: 40px;
+	display: flex;
+	align-items: center;
+}
+.footer-meta-copy,
+.footer-meta-site {
+	margin: 0 5px;
+}
+.footer-name-author {
+	margin-left: 20px;
+}
+.footer-name-author a {
+	display: flex;
+	align-items: center;
+	font-weight: 600;
+	font-size: var(--font-size-11);
+	color: var(--footer-color);
+}
+.footer-name-author a:hover {
+	color: var(--color-link-hover);
+}
+.footer-name-author a i {
+	margin-right: 5px;
+	font-size: var(--font-size-24);
+}
+
+
+.button-scroll-top {
+	position: fixed;
+	right: 40px;
+	bottom: 100px;
+	width: 40px;
+	height: 40px;
+	display: none;
+	border-radius: 50%;
+	text-align: center;
+	color: var(--button-scroll-top-color);
+	background-color: var(--background-color);
+	cursor: pointer;
+	transition: color .3s;
+}
+.button-scroll-top:hover {
+	color: var(--color-text);
+}
+.button-scroll-top i {
+	font-size: var(--font-size-16);
+	margin-top: 13px;
+}
+
+.message-nothing-found {
+	min-height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0 50px;
+	font-size: var(--font-size-16);
+	color: var(--message-nothing-found-color-text);
+}
+
+
+@media (max-width: 680px) {
+	.logo {
+		width: 150px;
+	}
+	.afisha-poster {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.afisha-poster img {
+		width: 200px;
+		height: 300px;
+	}
+	.premier-box-container {
+		max-height: 600px;
+		flex-wrap: wrap;
+	}
+	.premier-box-poster {
+		width: 100%;
+		align-items: center;
+		border-right: 0;
+	}
+	.afisha-cinema-halls {
+		order: 1;
+	}
+	.afisha-cinema-name {
+		order: 2;
+	}
+	.afisha-cinema-price {
+		order: 3;
+	}
+	.footer-container {
+		height: inherit;
+		flex-direction: column;
+		padding: 10px 0;
+	}
+}

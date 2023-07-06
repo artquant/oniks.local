@@ -1,0 +1,63 @@
+:root {
+	--color-text: #03071E;
+	--background-color-white: #FFFFFF;
+	--color-link: #D8334A;
+	--color-link-hover: #BF263C;
+}
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body {
+	font: 500 14px 'Gilroy';
+	letter-spacing: .01em;
+	color: var(--color-text);
+	background-color: var(--background-color-white);
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	transition: color .3s;
+}
+a:hover {
+	outline: none;
+	color: var(--color-link-hover);
+}
+.app {
+	height: 100%;
+	display: flex;
+}
+.main-container {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.error-logo {
+	width: 100%;
+	max-width: 600px;
+	height: 100%;
+	max-height: 200px;
+	background-image: url(../svg/logo_404.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.error-title {
+	margin-bottom: 50px;
+	font-weight: 600;
+	font-size: 24px;
+}
+.error-text {
+	text-align: center;
+}
